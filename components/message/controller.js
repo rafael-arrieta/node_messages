@@ -37,8 +37,25 @@ function getMessages(filterUser){
         resolve(result)
     })
 }
+
+function deleteMessage(id){
+    return new Promise( async (resolve, reject) => {
+        if (!id) {
+            reject('Id invalido')
+            return false
+        }
+        store.remove(id)
+            .then(() => {
+                resolve()
+            })
+            .catch(error => {
+                reject(error)
+            })
+    })
+}
 module.exports = {
     addMessage,
     getMessages,
     updateMessage,
+    deleteMessage,
 }

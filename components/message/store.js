@@ -18,8 +18,11 @@ async function addMessage(message){
 async function getMessages(filterUser){
     let filter = {}
     if(filterUser !== null){
-        filter = {user: filterUser}
+    
+        filter = { user: new RegExp(filterUser,"i") }
+
     }
+    //new RegExp(filterUser,"i") Is a filter of MongoDB that use the regular expressions, the flag "i" is used to filter the messages case-insensitive 
     const messages = await Model.find(filter)
     return messages
 }
@@ -35,11 +38,14 @@ async function updateMessage(id, message){
     return newMessage;
 }
 
+function removeMessage(id){
+    return Model.deleteOne({
+        _id: id
+    })
+}
 module.exports = {
     add: addMessage,
     list: getMessages,
     updateMessage: updateMessage,
-    // get
-    // update
-    // delete
+    remove: removeMessage,
 }
