@@ -1,0 +1,22 @@
+{
+  "name": "backendnode",
+  "version": "0.1.0",
+  "description": "chat",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chat",
+    "telegram",
+    "server"
+  ],
+  "author": "Rafael Arrieta",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "mongoos": "^0.0.1-security",
+    "mongoose": "^7.0.0"
+  }
+}
